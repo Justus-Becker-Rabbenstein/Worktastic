@@ -8,5 +8,9 @@ namespace Worktastic.Controllers
         {
             return View();
         }
+
+        public IActionResult CreateEditJobPosting(int id) { 
+            return View();
+        }
     }
 }
