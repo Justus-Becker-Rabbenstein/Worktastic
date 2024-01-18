@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Worktastic.Models;
 
 namespace Worktastic.Controllers
 {
@@ -9,8 +10,15 @@ namespace Worktastic.Controllers
             return View();
         }
 
-        public IActionResult CreateEditJobPosting(int id) { 
+        public IActionResult CreateEditJobPosting(int id)
+        {
             return View();
+        }
+
+        public IActionResult CreateEditJob(JobPosting jobPosting)
+        {
+            // TODO: write jobposting to db
+            return RedirectToAction("Index");
         }
     }
 }

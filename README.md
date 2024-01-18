@@ -10,11 +10,17 @@ https://www.udemy.com/course/aspnet-core-intensivkurs/
 
 # NuGet package manger
 
-1. Start migration (executes code and creates/changes sql database)
-<br />
-update-database
-2. Add table model to migrations
-<br />
-add-migration migrationname
-<br />
-=> NuGet packet manager interpretes name as part of command, don't use blanks
+<table>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>update-database</td>
+<td>start migration (executes code and creates/changes sql database)</td>
+</tr>
+<tr>
+<td>add-migration migrationname</td>
+<td>Add table model to migrations (don't use blanks, its a command)</td>
+</tr>
+</table>
