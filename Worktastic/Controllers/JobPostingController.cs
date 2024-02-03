@@ -77,7 +77,7 @@ namespace Worktastic.Controllers
                 jobFromDb.JobTitle = jobPosting.JobTitle;
                 jobFromDb.Salary = jobPosting.Salary;
                 jobFromDb.StartDate = jobPosting.StartDate;
-                jobFromDb.OwnerUserName = jobFromDb.OwnerUserName;
+                jobFromDb.OwnerUserName = jobPosting.OwnerUserName;
             }
             _context.SaveChanges();
 
