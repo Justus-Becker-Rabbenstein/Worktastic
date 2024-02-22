@@ -84,7 +84,8 @@ namespace Worktastic.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult DeleteJobPosting(int id)
+        [HttpPost]
+        public IActionResult DeleteJobPostingById(int id)
         {
             if (id == 0)
             {
@@ -100,7 +101,7 @@ namespace Worktastic.Controllers
             _context.JobPostings.Remove(jobPostingFromDb);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return Ok();
         }
     }
 }

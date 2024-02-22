@@ -5,6 +5,10 @@
 - Bootstrap
 - Entity Framework | Code First Approach | ORM (Object-relational mapping)
 
+Libraries
+- DataTables
+- SweetAlert2
+
 # Readme for Worktastic C# ASP.NET core app
 https://www.udemy.com/course/aspnet-core-intensivkurs/
 

@@ -29,7 +29,7 @@
                     <td>@jobPosting.CompanyName</td>
                     <td>
                         <a class="btn btn-warning" asp-route-id="@jobPosting.Id" asp-controller="JobPosting" asp-action="CreateEditJobPosting">Edit</a>
-                        <a class="btn btn-danger" asp-route-id="@jobPosting.Id" asp-controller="JobPosting" asp-action="DeleteJobPosting">Löschen</a>
+                        <button onclick="onClickedDeleteButton(@jobPosting.Id)" class="btn btn-danger">Löschen</button>
                     </td>
                 </tr>
             }
@@ -39,6 +39,40 @@
 
 @section Scripts {
     <script>
+        // initialize DataTables
         let table = new DataTable('#jobPostingTable');
+
+        // SweetAlert2
+        function onClickedDeleteButton(id) {
+            Swal.fire({
+                title: "Möchtest du das Inserat wirklich löschen?",
+                icon: "error",
+                showCloseButton: true,
+                focusConfirm: false,
+                confirmButtonText: `Ja, löschen.`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    // Backend call to delete job posting by id
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("DeleteJobPostingById")",
+                        data: { id: id },
+                        success: function (msg) {
+                            Swal.fire("Erfolgreich entfernt.", "", "success").then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+
+                        },
+                        error: function (msg) {
+                            Swal.fire("Ups, etwas ist schief gelaufen.", "", "error");
+                        }
+                    });
+                }
+            });
+        }
     </script>
 }
